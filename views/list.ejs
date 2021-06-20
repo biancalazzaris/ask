@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('./partials/header.ejs') %>
+
+<body>
+<%- include('./partials/navbar.ejs') %>
+<h4><%= pergunta.title %></h4>
+<div class="container">
+  <h3>Responder a pergunta:</h3>
+  <form action="<%= pergunta.id %>/responder" method="POST">
+    <div class="form-group">
+    <div class="form-group">
+      <label for="answerDescription">Sua resposta:</label>
+      <textarea 
+      class="form-control col-7" 
+      id="answerDescription" 
+      cols="7" 
+      name="RespostaCorpo" 
+      rows="7"
+      placeholder="Descreva aqui a sua resposta">
+</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar
+    </button>
+  </form>
+</div>
+
+
+
+
+
+
+
+<%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
