@@ -4,35 +4,29 @@
 <body>
 <%- include('./partials/navbar.ejs') %>
 
-<div class="container">
-  <h1>Adicionar Novo Tópico</h1>
+<div class="container col-7">
+  <h2>Criar um novo Tópico</h2>
 
   <form action="/salvar" method="POST">
     <div class="form-group">
-      <label for="topicTitle">Tópico</label>
+      <label for="topicTitle">Antes de criar um novo tópico, procure nos tópicos já abertos para evitar duplicidade :) </label>
       <input 
         type="text" 
         class="form-control" 
         id="topicTitle" 
         name="titulo"
         aria-describedby="topicTitleHelp" 
-        placeholder="Insira um tópico">
-      <small 
-      id="topicTitleHelp" 
-      class="form-text text-muted">
-      Coloque um tópico que seja com termos relevantes, facilitará na busca.
-      </small>
+        placeholder="Dê um nome para seu tópico aqui!"
+        maxlength="50" >
+
     </div>
     <div class="form-group">
-      <label for="topicDescription">Descrição</label>
-      <textarea 
-          class="form-control" 
-          id="topicDescription"
-          cols="30"
-          name="descricao"
-          rows="10"
-          placeholder="Insira a descrição da sua dúvida...">
-      </textarea>
+      <label for="topicDescription">Descreva com detalhes a sua dúvida:</label>
+      <textarea class="form-control" id="topicDescription" cols="20" name="descricao" rows="5" placeholder="Insira a descrição da sua dúvida..."></textarea>
+    </div>
+    <div class="custom-file my-2">
+      <input type="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Carregue seu anexo</label>
     </div>
     <button 
       type="submit" 

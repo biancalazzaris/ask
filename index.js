@@ -45,10 +45,10 @@ app.get('/novo', (req, res) => {
 
 //resposta por pergunta 
 app.get('/:id/resposta', (req, res) => {
-  const {id} = req.params;
+  let id = req.params;
   Pergunta.findAll({
     raw: true, 
-    where: { id: id}
+    where: {id: id}
   }).then((pergunta) => {
     console.log (pergunta)
     res.render('list', {
@@ -57,6 +57,7 @@ app.get('/:id/resposta', (req, res) => {
   });
 
 });
+
 
 
 
@@ -86,3 +87,5 @@ app.listen(9000, (erro) => {
     console.log('Servidor rodando : http://localhost:9000');
   }
 });
+
+

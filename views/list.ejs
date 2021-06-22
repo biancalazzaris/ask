@@ -4,26 +4,24 @@
 
 <body>
 <%- include('./partials/navbar.ejs') %>
-<h4><%= pergunta.title %></h4>
-<div class="container">
-  <h3>Responder a pergunta:</h3>
+<div class="container col-7">
+  <% pergunta.forEach(pergunta => { %>  
+  <h2>Responder a pergunta:</h2>
+  <div class="card border-success p-3">
+    <p><small> ID Pergunta: <%= pergunta.id %></small></p>
+    <h5><%= pergunta.title %> </h5>
+    <p><%= pergunta.description %> </p>
+  </div>
   <form action="<%= pergunta.id %>/responder" method="POST">
-    <div class="form-group">
-    <div class="form-group">
+    <div class="form-group pt-4">
       <label for="answerDescription">Sua resposta:</label>
-      <textarea 
-      class="form-control col-7" 
-      id="answerDescription" 
-      cols="7" 
-      name="RespostaCorpo" 
-      rows="7"
-      placeholder="Descreva aqui a sua resposta">
-</textarea>
+      <textarea class="form-control" id="answerDescription" cols="10" name="RespostaCorpo" rows="7" placeholder="Descreva aqui a sua resposta"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar
+    <button type="submit" class="btn btn-success">Postar
     </button>
   </form>
 </div>
+<% }); %>
 
 
 

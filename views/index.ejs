@@ -4,28 +4,23 @@
 <body>
 <%- include('./partials/navbar.ejs') %>
 
-<div class="container">
-  <h1>Pagina Principal</h1>
-  <div class="card-deck">
-  <% perguntas.forEach(pergunta => { %>  
-    <div class="col-3 m-3" >
-      <div class="card" style="width: 18rem; height: 12rem;" >
-        <div class="card-body">
-          <div class="text-muted">
-            <p><small> ID Pergunta: <%= pergunta.id %></small></p>
+<div class="container col-10">
+  <h2 class="text-center">Tópicos abertos:</h2>
+  <div class="card-deck d-flex justify-content-around">
+    <% perguntas.forEach(pergunta => { %>  
+      <div class="col-3 m-1 pt-4" >
+        <div class="card" style="width: 18rem; height: 12rem;" >
+          <div class="card-body">
+            <div><p><small> ID Pergunta: <%= pergunta.id %></small></p></div>
+            <div><h5><%= pergunta.title %> </h5></div>
           </div>
-          <div>
-            <h5><%= pergunta.title %> </h5>
+          <div class="card-footer text-right bg-transparent p-2 border-0">
+            <a href="<%= pergunta.id %>/resposta" class="btn btn-success">Responder</a>
           </div>
+        </div> 
       </div>
-      <div class="card-footer text-right bg-transparent p-2 border-0">
-        <a href="<%= pergunta.id %>/resposta" class="btn btn-success">Responder</a>
-      </div>
-      </div> 
-    </div>
-
-  <% }); %>
-</div>  
+    <% }); %>
+  </div>  
 </div>
   
 <%- include('./partials/footer.ejs') %>
